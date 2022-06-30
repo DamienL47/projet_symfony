@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 // définition de la classe controller pour la page home
@@ -23,6 +22,25 @@ class HomeController extends AbstractController
         return $this->render("nom.html.twig", [
             //donne au fichier twig l'information à afficher
             'name' => $name
+        ]);
+    }
+    //Création d'une route pour la page article
+    /**
+     * @Route("article", name="article")
+     */
+    //création de la méthode pour la page article
+    public function article()
+    {
+        //création d'une instance de classe
+        $category = [
+            'title' => 'Politique',
+            'color' => 'red',
+            'published' => false,
+            'description' => 'Decrypter l\'actualité politique avec le prisme de David Robert'
+        ];
+
+        return $this->render("articles.html.twig", [
+            'category'=> $category
         ]);
     }
 }
