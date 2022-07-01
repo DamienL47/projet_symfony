@@ -38,7 +38,7 @@ class HomeController extends AbstractController
             'published' => false,
             'description' => 'Decrypter l\'actualité politique avec le prisme de David Robert'
         ];
-
+        //envoie de la vu sur la page twig pour affichage sur le navigateur
         return $this->render("articles.html.twig", [
             'category'=> $category
         ]);
