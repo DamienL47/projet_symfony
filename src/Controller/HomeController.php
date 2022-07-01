@@ -11,7 +11,7 @@ class HomeController extends AbstractController
 {
     // création de la route pour lui affecter une méthode
     /**
-     * @Route("/")
+     * @Route("home", name="home")
      */
 // affectation de la méthode à la route pour informer le navigateur de ce qu'il doit afficher
     public function accueil()
@@ -19,7 +19,7 @@ class HomeController extends AbstractController
         //création de l'instance de classe
         $name = 'Damien';
         // lien vers le fichier twig qui renverra la vu demandée
-        return $this->render("nom.html.twig", [
+        return $this->render("home.html.twig", [
             //donne au fichier twig l'information à afficher
             'name' => $name
         ]);
