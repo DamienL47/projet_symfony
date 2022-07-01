@@ -7,12 +7,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StarsController extends AbstractController
 {
+    // je créé ma route stars
     /**
      * @Route("stars", name="stars")
      */
-
+    // je créé la méthode de la classe
     public function affiches()
     {
+        // je créé l'instance de classe
         $fichesArtistes = [
             1 => [
                 'title' => 'Tex',
@@ -50,6 +52,7 @@ class StarsController extends AbstractController
                 'publishedDate' => new \DateTime('NOW')
             ]
         ];
+        // j'utilise la classe render pour envoyer ma vue vers ma page twig qui sera afficher par le navigateur
         return $this->render("stars.html.twig", [
             'stars'=> $fichesArtistes
         ]);
