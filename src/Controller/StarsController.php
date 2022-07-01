@@ -4,17 +4,19 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-
+// je créé une classe controller à laquelle j'affecte la classe
+// Abstract controller pour permettre l'héritage de classe à d'autre fichiers
 class StarsController extends AbstractController
 {
-    // je créé ma route stars
+    // je créé ma route stars pour définir l'accès du navigateur
     /**
-     * @Route("stars", name="stars")
+     * @Route("star/{id}", name="star")
      */
-    // je créé la méthode de la classe
-    public function affiches()
+    // je créé la méthode de la classe pour définir les éléments qui seront transmis en vue au navigateur
+    //méthode à laquelle j'affecte un id en paramettre qui pourra être passé en GET (directement dans l'url)
+    public function affiches($id)
     {
-        // je créé l'instance de classe
+        // je créé l'instance de classe en définissant mes variables et leurs contenu.
         $fichesArtistes = [
             1 => [
                 'title' => 'Tex',
@@ -52,11 +54,10 @@ class StarsController extends AbstractController
                 'publishedDate' => new \DateTime('NOW')
             ]
         ];
-        // j'utilise la classe render pour envoyer ma vue vers ma page twig qui sera afficher par le navigateur
-        return $this->render("stars.html.twig", [
-            'stars'=> $fichesArtistes
+        // j'utilise la fonction "render" pour envoyer ma vue vers ma page twig qui sera afficher par le navigateur
+        // et pouvoir appeler mes variables directement depuis le twig
+        return $this->render("star.html.twig", [
+            'star'=> $fichesArtistes[$id]
         ]);
-
     }
-
 }
