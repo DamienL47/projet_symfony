@@ -1,0 +1,9 @@
+{% if star.published %}
+    <article style="border:1px solid {{star.color}};">
+        <h1>{{ star.title}}</h1>
+        <img src="{{star.image}}" alt="Image de star" height="100px">
+        <p>{{star.publishedDate | date("m/d/Y")}}</p>
+    </article>
+{% else %}
+    <p>Cet article n'est pas publié</p>
+{%endif%}
